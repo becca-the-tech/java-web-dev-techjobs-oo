@@ -57,35 +57,39 @@ public class Job {
         String coreCompetencyOutput;
         String emptyFieldOutput = "Data not available";
 
-        if (name == null && employer.getValue() == null && location.getValue() == null && positionType.getValue() == null && coreCompetency.getValue() == null){
+        if ((this.name == null || this.name == "")
+                && (this.employer.getValue() == null || this.employer.getValue() == "")
+                && (this.location.getValue() == null || this.location.getValue() == "")
+                && (this.positionType.getValue() == null || this.positionType.getValue() == "")
+                && (this.coreCompetency.getValue() == null || this.coreCompetency.getValue() == "")){
             return "OOPS! This job does not seem to exist.";
         }
 
-        if (name == null){
+        if (this.name == null || this.name == ""){
             nameOutput = emptyFieldOutput;
         } else {
             nameOutput = name;
         }
 
-        if (employer == null){
+        if (employer == null || this.employer.getValue() == ""){
             employerOutput = emptyFieldOutput;
         } else {
             employerOutput = employer.getValue();
         }
 
-        if (location == null){
+        if (this.location == null || this.location.getValue() == ""){
             locationOutput = emptyFieldOutput;
         } else {
             locationOutput = location.getValue();
         }
 
-        if (positionType == null){
+        if (this.positionType == null || this.positionType.getValue() == ""){
             positionTypeOutput = emptyFieldOutput;
         } else {
             positionTypeOutput = positionType.getValue();
         }
 
-        if (coreCompetency == null){
+        if (this.coreCompetency == null || this.coreCompetency.getValue() == ""){
             coreCompetencyOutput = emptyFieldOutput;
         } else {
             coreCompetencyOutput = coreCompetency.getValue();
