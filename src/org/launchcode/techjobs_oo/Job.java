@@ -48,6 +48,65 @@ public class Job {
         return Objects.hash(id);
     }
 
+    @Override
+    public String toString() {
+        String nameOutput;
+        String employerOutput;
+        String locationOutput;
+        String positionTypeOutput;
+        String coreCompetencyOutput;
+        String emptyFieldOutput = "Data not available";
+
+        if (name == null && employer.getValue() == null && location.getValue() == null && positionType.getValue() == null && coreCompetency.getValue() == null){
+            return "OOPS! This job does not seem to exist.";
+        }
+
+        if (name == null){
+            nameOutput = emptyFieldOutput;
+        } else {
+            nameOutput = name;
+        }
+
+        if (employer == null){
+            employerOutput = emptyFieldOutput;
+        } else {
+            employerOutput = employer.getValue();
+        }
+
+        if (location == null){
+            locationOutput = emptyFieldOutput;
+        } else {
+            locationOutput = location.getValue();
+        }
+
+        if (positionType == null){
+            positionTypeOutput = emptyFieldOutput;
+        } else {
+            positionTypeOutput = positionType.getValue();
+        }
+
+        if (coreCompetency == null){
+            coreCompetencyOutput = emptyFieldOutput;
+        } else {
+            coreCompetencyOutput = coreCompetency.getValue();
+        }
+
+        return "\n" +"ID: " + this.id + "\n" +
+                "Name: " + nameOutput + "\n"+
+                "Employer: " + employerOutput + "\n" +
+                "Location: " + locationOutput+ "\n" +
+                "Position Type: " + positionTypeOutput + "\n" +
+                "Core Competency: " + coreCompetencyOutput + "\n";
+
+/*        return "\n" +"ID: " + this.id + "\n" +
+                "Name: " + this.name + "\n"+
+                "Employer: " + this.employer + "\n" +
+                "Location: " + this.location + "\n" +
+                "Position Type: " + this.positionType + "\n" +
+                "Core Competency: " + this.coreCompetency + "\n";
+
+ */
+    }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
